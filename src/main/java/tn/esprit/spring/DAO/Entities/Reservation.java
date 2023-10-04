@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.Set;
+
 @Table(name = "Reservation")
 @Entity
 @Getter
@@ -21,4 +22,9 @@ public class Reservation {
     @Temporal(TemporalType.DATE)
     private LocalDate anneeUniversitaire;
     private boolean estValide;
+
+    @ManyToOne
+    private Chambre chambre;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
 }

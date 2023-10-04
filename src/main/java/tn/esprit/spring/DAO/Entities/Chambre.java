@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Table(name = "chambre")
 @Entity
 @Getter
@@ -21,4 +23,9 @@ public class Chambre {
 
     @Enumerated(EnumType.STRING)
     private TypeChambre typeChambre;
+    @ManyToOne
+    private Bloc bloc;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "chambre")
+    private Set<Reservation> reservations;
 }

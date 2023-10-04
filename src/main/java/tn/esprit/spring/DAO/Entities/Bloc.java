@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Table(name = "Bloc")
 @Entity
 @Getter
@@ -18,4 +20,7 @@ public class Bloc {
     private long id;
     private String nomBloc;
     private long capaciteBloc;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "bloc")
+    private Set<Chambre> chambre;
 }
