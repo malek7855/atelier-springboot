@@ -1,11 +1,9 @@
 package tn.esprit.spring.DAO.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
 import java.util.Set;
 
 @Table(name = "Foyer")
@@ -14,6 +12,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Foyer {
 
     @Id
@@ -26,7 +25,8 @@ public class Foyer {
     @OneToOne
     private Universite universite;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "foyer")
+    @OneToMany(mappedBy = "foyer")
+    @JsonIgnore
     private Set<Bloc> bloc;
 
 
