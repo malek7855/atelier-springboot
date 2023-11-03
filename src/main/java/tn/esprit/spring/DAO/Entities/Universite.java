@@ -2,6 +2,7 @@ package tn.esprit.spring.DAO.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 @Table(name = "universite")
 @Entity
@@ -17,5 +18,7 @@ public class Universite {
     private long idUniversite;
     private String nomUniversite;
     private String adresse;
+    @OneToOne(cascade = CascadeType.ALL)
+    Foyer foyer;
 
 }

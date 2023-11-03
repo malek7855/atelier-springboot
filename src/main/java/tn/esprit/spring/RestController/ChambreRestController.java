@@ -35,9 +35,9 @@ public class ChambreRestController {
     public Chambre editChambre(@RequestBody Chambre c) {
         return iChambreService.editChambre(c);
     }
-    @PostMapping("/findChambreByNumeroChambre")
-    List<Chambre> addChambre(@RequestBody Map<Object,Object> request){
-        Integer id = (Integer) request.get("numeroChambre");
-        return iChambreService.findByNumeroChambre(id);
-    }
+  //  @PostMapping("/findChambreByNumeroChambre")
+    //List<Chambre> addChambre(@RequestBody Map<Object,Object> request){
+     //   Integer id = (Integer) request.get("numeroChambre");
+      //  return iChambreService.findByNumeroChambre(id);
+    //}
 }

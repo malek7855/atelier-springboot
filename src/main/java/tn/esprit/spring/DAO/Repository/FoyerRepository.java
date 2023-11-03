@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 public interface FoyerRepository extends JpaRepository<Foyer,Long> {
-    List<Foyer> findFoyerByBloc(Bloc bloc);
-    List<Foyer> findByBlocAndIdFoyer(Bloc bloc,Long idfoyer);
+    //Foyer find(long id);
+    //List<Foyer> findFoyerByBlocCapaciteBloc(long capaciteBloc);
 }

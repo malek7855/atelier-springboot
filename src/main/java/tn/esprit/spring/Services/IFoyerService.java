@@ -15,7 +15,7 @@ public interface IFoyerService {
     Foyer findById(long id);
     void deleteById(long id);
     void Delete(Foyer f);
-    List<Foyer> findFoyerByBloc(Bloc bloc);
-    List<Foyer> findByBlocAndIdFoyer(Bloc bloc,Long idfoyer);
+    //List<Foyer> findFoyerByBloc(Bloc bloc);
+    //List<Foyer> findByBlocAndIdFoyer(Bloc bloc,Long idfoyer);
 
 }

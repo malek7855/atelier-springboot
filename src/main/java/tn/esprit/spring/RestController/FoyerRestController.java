@@ -38,14 +38,5 @@ public class FoyerRestController {
         return iFoyerService.editFoyer(f);
     }
 
-    @PostMapping("/findFoyerByBloc")
-    List<Foyer> findByBloc(@RequestBody Bloc bloc)
-    {
-        return iFoyerService.findFoyerByBloc(bloc);
-    }
 
-    @PostMapping("/findFoyerByBlocAAndIdFoyer")
-    List<Foyer> findByBlocAAndIdFoyer(@RequestBody Bloc bloc,Long idfoyer){
-        return iFoyerService.findByBlocAndIdFoyer(bloc,idfoyer);
-    }
 }

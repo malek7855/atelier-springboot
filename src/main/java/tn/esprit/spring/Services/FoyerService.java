@@ -49,15 +49,7 @@ public class FoyerService implements IFoyerService{
         foyerRepository.delete(f);
     }
 
-    @Override
-    public List<Foyer> findFoyerByBloc(Bloc bloc) {
-        return foyerRepository.findFoyerByBloc(bloc);
-    }
 
-    @Override
-    public List<Foyer> findByBlocAndIdFoyer(Bloc bloc, Long idfoyer) {
-        return foyerRepository.findByBlocAndIdFoyer(bloc,idfoyer);
-    }
 
 
 }

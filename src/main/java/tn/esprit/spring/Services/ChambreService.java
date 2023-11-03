@@ -48,8 +48,10 @@ public class ChambreService implements IChambreService{
         chambreRepository.delete(c);
     }
 
-    @Override
-    public List<Chambre> findByNumeroChambre(long idchambre) {
-        return chambreRepository.findByNumeroChambre(idchambre);
-    }
+    //@Override
+    //public List<Chambre> findByNumeroChambre(long idchambre) {
+      //  return null;
+    //}
+
+
 }

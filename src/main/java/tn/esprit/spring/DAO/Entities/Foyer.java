@@ -22,7 +22,7 @@ public class Foyer {
     private String nomFoyer;
     private long capaciteFoyer;
 
-    @OneToOne
+    @OneToOne(mappedBy = "foyer")
     private Universite universite;
 
     @OneToMany(mappedBy = "foyer")

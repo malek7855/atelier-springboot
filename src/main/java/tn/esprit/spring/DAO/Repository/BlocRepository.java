@@ -16,8 +16,8 @@ public interface BlocRepository extends JpaRepository<Bloc,Long> {
     List<Bloc> findByNomBlocContaining(String sousChaine);
     List<Bloc> findAllByOrderByNomBlocAsc();
     List<Bloc> findByNomBlocOrCapaciteBloc(String nomBloc,long capacityBloc);
-    List<Bloc> findBlocByFoyer(Foyer foyer);
-    List<Bloc> findBlocByFoyerUniversiteAndFoyer(Universite universite,Foyer foyer);
+    List<Bloc> findBlocByFoyerIdFoyer(long id);
+    List<Bloc> findByFoyerUniversite(Universite universite);
 
 
 }

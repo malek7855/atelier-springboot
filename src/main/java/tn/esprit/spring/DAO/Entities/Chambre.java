@@ -1,5 +1,6 @@
 package tn.esprit.spring.DAO.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,13 +18,17 @@ public class Chambre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idChambre;
+    @Column(unique = true)
     private long numeroChambre;
 
     @Enumerated(EnumType.STRING)
     private TypeChambre typeChambre;
+
+    @JsonIgnore
     @ManyToOne
     private Bloc bloc;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "chambre")
     private Set<Reservation> reservations;
 }

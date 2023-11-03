@@ -87,12 +87,12 @@ public class BlockService implements IBlocService{
 
      @Override
      public List<Bloc> findBlocByFoyer(Foyer foyer) {
-         return blocRepository.findBlocByFoyer(foyer);
+         return null;
      }
 
      @Override
      public List<Bloc> findBlocByFoyerUniversiteAndFoyer(Universite universite, Foyer foyer) {
-         return blocRepository.findBlocByFoyerUniversiteAndFoyer(universite,foyer);
+         return null;
      }
 
 
