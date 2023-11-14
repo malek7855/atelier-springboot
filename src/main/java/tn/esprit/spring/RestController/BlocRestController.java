@@ -3,12 +3,14 @@ package tn.esprit.spring.RestController;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.DAO.Entities.Bloc;
+import tn.esprit.spring.DAO.Entities.Chambre;
 import tn.esprit.spring.DAO.Entities.Foyer;
 import tn.esprit.spring.DAO.Entities.Universite;
 import tn.esprit.spring.Services.IBlocService;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -40,7 +42,7 @@ public class BlocRestController {
     }
 
     @PostMapping("/findByName")
-    List<Bloc> findByNomBloc(@RequestBody Map<String,String> request){
+    Bloc findByNomBloc(@RequestBody Map<String,String> request){
         String nomBloc=request.get("nomBloc");
         return iBlocService.findByNomBloc(nomBloc);
     }
@@ -85,5 +87,10 @@ public class BlocRestController {
     @PostMapping("/findBlocByFoyerUniversityAndFoyer")
     public List<Bloc> findBlocByFoyerUniversityAndFoyer(@RequestBody Universite universite,Foyer foyer){
         return iBlocService.findBlocByFoyerUniversiteAndFoyer(universite,foyer);
+    }
+
+    @PostMapping("/affecterChambres")
+    public Bloc affecterChambresABloc(@RequestBody List<Integer> chambres,@RequestBody String nomBloc){
+        return iBlocService.affecterChambresABloc(chambres,nomBloc);
     }
 }

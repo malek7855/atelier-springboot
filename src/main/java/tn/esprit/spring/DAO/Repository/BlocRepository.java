@@ -9,7 +9,8 @@ import java.util.List;
 
 
 public interface BlocRepository extends JpaRepository<Bloc,Long> {
-    List<Bloc> findByNomBloc(String nomBloc);
+
+    Bloc findByNomBloc(String nomBloc);
     List<Bloc> findByCapaciteBloc(long capacityBloc);
     List<Bloc> findByCapaciteBlocAndNomBloc(long capacityBloc,String nomBloc);
     List<Bloc> findByCapaciteBlocGreaterThan(long capacityBloc);
@@ -18,6 +19,8 @@ public interface BlocRepository extends JpaRepository<Bloc,Long> {
     List<Bloc> findByNomBlocOrCapaciteBloc(String nomBloc,long capacityBloc);
     List<Bloc> findBlocByFoyerIdFoyer(long id);
     List<Bloc> findByFoyerUniversite(Universite universite);
+    Bloc affecterBlocAFoyer(String nomBloc, String nomFoyer);
+
 
 
 }

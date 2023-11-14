@@ -1,5 +1,6 @@
 package tn.esprit.spring.DAO.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,8 +25,8 @@ public class Chambre {
     @Enumerated(EnumType.STRING)
     private TypeChambre typeChambre;
 
-    @JsonIgnore
     @ManyToOne
+    @JsonBackReference
     private Bloc bloc;
 
     @JsonIgnore

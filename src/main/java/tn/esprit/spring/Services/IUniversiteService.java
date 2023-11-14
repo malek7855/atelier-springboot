@@ -13,4 +13,6 @@ public interface IUniversiteService {
     Universite findById(long id);
     void deleteById(long id);
     void Delete(Universite u);
+    Universite findByNomUniversite(String nomUniversite);
+   // Universite affecterFoyerAUniversite(long idFoyer,String nomUniversite);
 }

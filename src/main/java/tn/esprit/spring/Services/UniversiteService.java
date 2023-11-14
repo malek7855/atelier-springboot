@@ -2,6 +2,7 @@ package tn.esprit.spring.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.spring.DAO.Entities.Foyer;
 import tn.esprit.spring.DAO.Entities.Universite;
 import tn.esprit.spring.DAO.Repository.UniversiteRepository;
 
@@ -47,4 +48,10 @@ public class UniversiteService implements IUniversiteService{
     public void Delete(Universite u) {
         universiteRepository.delete(u);
     }
+
+    @Override
+    public Universite findByNomUniversite(String nomUniversite) {
+        return universiteRepository.findByNomUniversite(nomUniversite);
+    }
+
 }

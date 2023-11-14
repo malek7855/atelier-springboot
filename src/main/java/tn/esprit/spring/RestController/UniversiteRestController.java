@@ -2,6 +2,7 @@ package tn.esprit.spring.RestController;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.spring.DAO.Entities.Foyer;
 import tn.esprit.spring.DAO.Entities.Universite;
 import tn.esprit.spring.Services.IUniversiteService;
 
@@ -35,4 +36,6 @@ public class UniversiteRestController {
     public Universite editUniversite(@RequestBody Universite u) {
         return iUniversiteService.editUniversite(u);
     }
+
 }
+

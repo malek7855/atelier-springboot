@@ -1,6 +1,7 @@
 package tn.esprit.spring.Services;
 
 import tn.esprit.spring.DAO.Entities.Bloc;
+import tn.esprit.spring.DAO.Entities.Chambre;
 import tn.esprit.spring.DAO.Entities.Foyer;
 import tn.esprit.spring.DAO.Entities.Universite;
 
@@ -15,7 +16,7 @@ public interface IBlocService {
     Bloc findById(long id);
     void deleteById(long id);
     void Delete(Bloc b);
-    List<Bloc> findByNomBloc(String nomBloc);
+    Bloc findByNomBloc(String nomBloc);
     List<Bloc> findByCapaciteBloc(long capacityBloc);
     List<Bloc> findByCapaciteBlocAndNomBloc(long capacityBloc,String nomBloc);
     List<Bloc> findByCapaciteBlocGreaterThan(long capacityBloc);
@@ -24,4 +25,7 @@ public interface IBlocService {
     List<Bloc> findByNomBlocOrCapaciteBloc(String nomBloc,long capacityBloc);
     List<Bloc> findBlocByFoyer(Foyer foyer);
     List<Bloc>  findBlocByFoyerUniversiteAndFoyer(Universite universite, Foyer foyer);
+    Bloc affecterChambresABloc(List<Integer> numChambre,String nomBloc);
+    Bloc affecterBlocAFoyer(String nomBloc, String nomFoyer);
+
 }

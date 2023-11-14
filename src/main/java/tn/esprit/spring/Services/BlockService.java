@@ -1,18 +1,27 @@
 package tn.esprit.spring.Services;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import org.springframework.stereotype.Service;
 import tn.esprit.spring.DAO.Entities.Bloc;
+import tn.esprit.spring.DAO.Entities.Chambre;
 import tn.esprit.spring.DAO.Entities.Foyer;
 import tn.esprit.spring.DAO.Entities.Universite;
 import tn.esprit.spring.DAO.Repository.BlocRepository;
+import tn.esprit.spring.DAO.Repository.ChambreRepository;
+import tn.esprit.spring.DAO.Repository.FoyerRepository;
 
+import java.util.HashSet;
 import java.util.List;
- @Service
+import java.util.Set;
+
+@Service
 @AllArgsConstructor
 public class BlockService implements IBlocService{
     BlocRepository blocRepository;
+    ChambreRepository chambreRepository;
+    FoyerRepository foyerRepository;
     @Override
     public Bloc addBloc(Bloc b) {
         return blocRepository.save(b);
@@ -47,11 +56,15 @@ public class BlockService implements IBlocService{
 
     @Override
     public void Delete(Bloc b) {
-        blocRepository.deleteAll();
+    Set<Chambre> chambres=b.getChambre();
+       for(Chambre chambre:chambres){
+           chambreRepository.delete(chambre);
+       }
+        blocRepository.delete(b);
     }
 
      @Override
-     public List<Bloc> findByNomBloc(String nomBloc) {
+     public Bloc findByNomBloc(String nomBloc) {
          return blocRepository.findByNomBloc(nomBloc);
      }
 
@@ -95,5 +108,27 @@ public class BlockService implements IBlocService{
          return null;
      }
 
+    @Override
+    public Bloc affecterChambresABloc(List<Integer> numChambre, String nomBloc) {
+        Bloc bloc = blocRepository.findByNomBloc(nomBloc);
+        Set<Chambre> chambers = new HashSet<>();
+        numChambre.forEach(numero -> {
+            List<Chambre> chambreList = chambreRepository.selectByNum(numero);
+            if (!chambreList.isEmpty()) {
+                Chambre c = chambreList.get(0);
+                c.setBloc(bloc);
+                chambreRepository.save(c);
+                chambers.add(c);
+            }
+        });
+        bloc.setChambre(chambers);
+        return blocRepository.save(bloc);
+    }
 
- }
+    @Override
+    public Bloc affecterBlocAFoyer(String nomBloc, String nomFoyer) {
+        return null;
+    }
+
+
+}

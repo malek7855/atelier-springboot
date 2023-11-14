@@ -23,7 +23,8 @@ public class Bloc {
     @ManyToOne
     Foyer foyer;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "bloc")
+    @OneToMany(mappedBy = "bloc",orphanRemoval = true)
+    @JsonManagedReference
     private Set<Chambre> chambre;
 
 
